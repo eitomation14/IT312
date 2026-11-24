@@ -1,0 +1,33 @@
+﻿@model LoginViewModel
+
+<div class="auth-page">
+    <div class="auth-container">
+        <div class="auth-heading">
+            <span class="auth-logo">IIS</span>
+            <p class="eyebrow">WELCOME BACK</p>
+            <h1>Sign in to your account</h1>
+            <p>Access your instructor information dashboard.</p>
+        </div>
+
+        <form id="loginForm" class="auth-form" asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="validation-message"></div>
+            <label asp-for="Email"></label>
+            <input id="email" type="email" asp-for="Email" placeholder="Enter your email" autocomplete="email" />
+            <span class="validation-message" asp-validation-for="Email"></span>
+
+            <label asp-for="Password">Password</label>
+            <input type="password" id="password" asp-for="Password" placeholder="Enter your password" />
+            <span class="validation-message" asp-validation-for="Password"></span>
+
+            <label class="checkbox-label"><input asp-for="RememberMe" /> Remember me</label>
+
+            <button class="button button-primary" type="submit">Sign In</button>
+        </form>
+
+        <p class="auth-footer">Don't have an account? <a asp-action="Register">Create one</a></p>
+    </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+</div>

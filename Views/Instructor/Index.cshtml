@@ -1,0 +1,14 @@
+@model IEnumerable<Instructor_Information_System.Models.Instructor>
+@{ ViewData["Title"] = "Instructors"; }
+<section class="page-shell">
+    <div class="page-heading"><div><p class="eyebrow">DIRECTORY</p><h1>Instructors</h1><p class="page-subtitle">Manage all instructor records.</p></div><a class="button button-primary" asp-action="Create">Add instructor</a></div>
+    <form class="directory-filters" asp-action="Index" method="get">
+        <input type="search" name="search" value="@ViewData["Search"]" placeholder="Search instructor records..." aria-label="Search instructors" />
+        <button class="button button-secondary" type="submit">Search</button>
+        <a class="button button-secondary" asp-action="Index">Clear</a>
+    </form>
+    <div class="table-card">
+        @if (!Model.Any()) { <div class="empty-state"><h2>No instructors yet</h2><p>Add your first instructor to begin building the directory.</p><a class="button button-primary" asp-action="Create">Add instructor</a></div> }
+        else { <div class="table-wrap"><table><thead><tr><th>Instructor ID</th><th>Name</th><th>Designation</th><th>Contact No.</th><th>Bachelor Degree</th><th class="actions-column">Actions</th></tr></thead><tbody>@foreach (var instructor in Model) { <tr><td>@instructor.InstructorID</td><td>@instructor.Name</td><td>@instructor.Designation</td><td>@instructor.ContactNo</td><td>@instructor.BachelorDegree</td><td class="actions"><a asp-action="Details" asp-route-id="@instructor.InstructorID">Details</a><a asp-action="Edit" asp-route-id="@instructor.InstructorID">Edit</a><a class="danger-link" asp-action="Delete" asp-route-id="@instructor.InstructorID">Delete</a></td></tr> }</tbody></table></div> }
+    </div>
+</section>

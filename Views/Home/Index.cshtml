@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<section class="dashboard">
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">INSTRUCTOR INFORMATION SYSTEM</p>
+            <h1>Dashboard</h1>
+            <p class="page-subtitle">Manage your instructor information in one place.</p>
+        </div>
+        <a class="button button-primary" asp-controller="Account" asp-action="Register">Add Instructor</a>
+    </div>
+
+    <div class="dashboard-cards">
+        <article class="dashboard-card">
+            <span class="card-icon">👥</span>
+            <div>
+                <p class="card-label">Total Instructors</p>
+                <strong>0</strong>
+            </div>
+        </article>
+        <article class="dashboard-card">
+            <span class="card-icon">✓</span>
+            <div>
+                <p class="card-label">Active Records</p>
+                <strong>0</strong>
+            </div>
+        </article>
+        <article class="dashboard-card">
+            <span class="card-icon">＋</span>
+            <div>
+                <p class="card-label">Quick Action</p>
+                <a asp-controller="Account" asp-action="Register">Register an instructor</a>
+            </div>
+        </article>
+    </div>
+
+    <div class="dashboard-panel">
+        <div>
+            <h2>Welcome to your dashboard</h2>
+            <p>Use the navigation above or the quick actions to get started.</p>
+        </div>
+        <a class="button button-secondary" asp-controller="Account" asp-action="Login">Sign in</a>
+    </div>
+</section>

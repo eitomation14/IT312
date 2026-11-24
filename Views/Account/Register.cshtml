@@ -1,0 +1,46 @@
+﻿@model RegisterViewModel
+
+<div class="auth-page">
+    <div class="auth-container auth-container-wide">
+        <div class="auth-heading">
+            <span class="auth-logo">IIS</span>
+            <p class="eyebrow">GET STARTED</p>
+            <h1>Create an instructor account</h1>
+            <p>Register an instructor to begin managing information.</p>
+        </div>
+
+        <form id="registerForm" class="auth-form" asp-action="Register" method="post">
+            <div asp-validation-summary="ModelOnly" class="validation-message"></div>
+            <label asp-for="FullName"></label>
+            <input id="name" asp-for="FullName" placeholder="Enter full name" />
+            <span class="validation-message" asp-validation-for="FullName"></span>
+
+            <label asp-for="Email"></label>
+            <input id="email" type="email" asp-for="Email" placeholder="Enter your email" autocomplete="email" />
+            <span class="validation-message" asp-validation-for="Email"></span>
+
+            <div class="form-row">
+                <div>
+                    <label asp-for="Password">Password</label>
+                    <input type="password" id="password" asp-for="Password" placeholder="Create a password" />
+                    <span class="validation-message" asp-validation-for="Password"></span>
+                </div>
+                <div>
+                    <label asp-for="ConfirmPassword">Confirm password</label>
+                    <input type="password" id="confirmPassword" asp-for="ConfirmPassword" placeholder="Repeat password" />
+                    <span class="validation-message" asp-validation-for="ConfirmPassword"></span>
+                </div>
+            </div>
+
+            <button class="button button-primary" type="submit">Create Account</button>
+        </form>
+
+        <p class="auth-footer">Already have an account? <a asp-action="Login">Sign in</a></p>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

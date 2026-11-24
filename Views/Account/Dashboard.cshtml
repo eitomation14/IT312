@@ -1,0 +1,25 @@
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<section class="dashboard">
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">INSTRUCTOR INFORMATION SYSTEM</p>
+            <h1>Welcome, @Model.DisplayName</h1>
+            <p class="page-subtitle">Manage instructor information from one simple workspace.</p>
+        </div>
+        <a class="button button-primary" asp-controller="Instructor" asp-action="Create">Add instructor</a>
+    </div>
+
+    <div class="dashboard-cards">
+        <article class="dashboard-card"><span class="card-icon">#</span><div><p class="card-label">Total instructors</p><strong>@Model.TotalInstructors</strong></div></article>
+        <article class="dashboard-card"><span class="card-icon">→</span><div><p class="card-label">Latest added</p><strong>@Model.LatestInstructorName</strong></div></article>
+    </div>
+
+    <div class="dashboard-panel">
+        <div><h2>Instructor records</h2><p>Create, review, edit, or remove instructor information.</p></div>
+        <a class="button button-secondary" asp-controller="Instructor" asp-action="Index">Open records</a>
+    </div>
+</section>
